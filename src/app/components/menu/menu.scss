@@ -1,0 +1,43 @@
+@use '../../../styles/variables/variables' as *;
+
+.logo {
+  margin-right: 8px;
+}
+
+.title {
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav {
+  display: flex;
+  gap: 4px;
+}
+
+nav a.active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+// Mobile : icônes seules pour que la barre tienne sur l'écran
+@media (max-width: $breakpoint-sm) {
+  .label {
+    display: none;
+  }
+
+  .logo {
+    margin-right: 4px;
+  }
+
+  nav a,
+  nav button {
+    min-width: 0;
+    padding: 0 12px;
+
+    mat-icon {
+      margin: 0;
+    }
+  }
+}

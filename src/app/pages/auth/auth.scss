@@ -1,0 +1,35 @@
+@use '../../../styles/variables/variables' as *;
+
+.auth {
+  width: 100%;
+  max-width: 420px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+
+  button[type='submit'] {
+    height: 48px;
+  }
+}
+
+.error {
+  margin: 0 0 12px;
+  color: $color-error;
+}
+
+mat-card-actions {
+  justify-content: center;
+  padding-bottom: 16px;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .auth {
+    margin: 16px auto;
+    padding: 0 8px;
+  }
+}

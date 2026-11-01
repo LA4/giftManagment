@@ -1,0 +1,9 @@
+@use '../variables/variables' as *;
+
+// Surcharges des composants Angular Material.
+// Ajouter ici les overrides (ex. .mat-mdc-button, .mat-mdc-card, ...).
+:root {
+  --app-primary: #{$color-primary};
+  --app-accent: #{$color-accent};
+  --app-radius: #{$radius-md};
+}

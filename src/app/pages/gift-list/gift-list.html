@@ -1,0 +1,45 @@
+<section class="gift-list">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Ma liste de cadeaux</mat-card-title>
+      <mat-card-subtitle>
+        {{ obtainedCount() }} / {{ gifts().length }} obtenu(s)
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form class="add-form" (ngSubmit)="add()">
+        <mat-form-field appearance="outline" class="grow">
+          <mat-label>Nouveau cadeau</mat-label>
+          <input matInput name="newGift" [(ngModel)]="newGift" autocomplete="off" />
+        </mat-form-field>
+        <button mat-flat-button type="submit" [disabled]="!newGift.trim()">
+          <mat-icon>add</mat-icon>
+          Ajouter
+        </button>
+      </form>
+
+      @if (gifts().length === 0) {
+        <p class="empty">Votre liste est vide. Ajoutez votre premier cadeau !</p>
+      } @else {
+        <mat-list>
+          @for (gift of gifts(); track gift.id) {
+            <mat-list-item>
+              <mat-checkbox matListItemIcon [checked]="gift.obtained" (change)="toggle(gift.id)" />
+              <span matListItemTitle [class.obtained]="gift.obtained">{{ gift.name }}</span>
+              <button
+                mat-icon-button
+                matListItemMeta
+                type="button"
+                aria-label="Supprimer"
+                (click)="remove(gift.id)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+          }
+        </mat-list>
+      }
+    </mat-card-content>
+  </mat-card>
+</section>
